@@ -155,9 +155,9 @@
             messages.scrollTop = messages.scrollHeight;
         }
         document.querySelector(".inpt").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            send();
+            if (e.key === "Enter") {
+                e.preventDefault();
+                send();
             }
         });
     </script>
