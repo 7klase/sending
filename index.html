@@ -73,11 +73,24 @@
     .messages {
         height: 60%;
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 10px;
         overflow-y: auto;
         padding: 10px;
         scroll-behavior: smooth;
+    }
+    @keyframes pushIn {
+        from {
+            transform: translateY(40px) scale(0.98);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+    .msgsent {
+        animation: pushIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .messages::-webkit-scrollbar {
         width: 8px;
@@ -144,7 +157,7 @@
             const messages = document.querySelector(".messages");
             const text = input.value.trim();
             if (!text) return;
-            messages.insertAdjacentHTML("beforeend", `
+            messages.insertAdjacentHTML("afterbegin", `
                 <div class="msgsent">
                     <img src="secret.webp" style="width:12%; border-radius:10%; margin-left:4%;">
                     <p class="msg">${text}</p>
