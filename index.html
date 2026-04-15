@@ -156,6 +156,7 @@
             const input = document.querySelector(".inpt");
             const messages = document.querySelector(".messages");
             const text = input.value.trim();
+            input.focus();
             if (!text) return;
             messages.insertAdjacentHTML("afterbegin", `
                 <div class="msgsent">
@@ -164,7 +165,6 @@
                 </div>
             `);
             input.value = "";
-            input.focus();
             messages.scrollTop = messages.scrollHeight;
         }
         document.querySelector(".inpt").addEventListener("keydown", function (e) {
